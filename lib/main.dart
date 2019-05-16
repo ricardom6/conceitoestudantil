@@ -210,17 +210,18 @@ class _HomeState extends State<Home> {
       ],
     );
 
-    Form form = Form(
+        Form form = Form(
       child: column,
       key: _formKey,
     );
 
     SingleChildScrollView singleChildScrollView = SingleChildScrollView(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-        form,
-        //padding: EdgeInsets.fromLTRB(10, 0, 10, 50),
-          Text ("Desenvolvido por M6 Automação")
+        padding: EdgeInsets.fromLTRB(10, 0, 10, 50),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            form,
+
+             Text ("Desenvolvido por M6 Automação")
         ])
     );
     //Container containerColuna =
