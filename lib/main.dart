@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
     else if (Result >=7.5) stConceito = "Conceito B";
     else if (Result >=6) stConceito = "Conceito C";
     else if (Result >=4) stConceito = "Conceito D";
-    else stConceito = "Conceito A";
+    else stConceito = "Conceito E";
     conceitoController.text = stConceito;
   }
 
@@ -216,8 +216,12 @@ class _HomeState extends State<Home> {
     );
 
     SingleChildScrollView singleChildScrollView = SingleChildScrollView(
-      child: form,
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 50),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+        form,
+        //padding: EdgeInsets.fromLTRB(10, 0, 10, 50),
+          Text ("Desenvolvido por M6 Automação")
+        ])
     );
     //Container containerColuna =
     //  Container(padding: EdgeInsets.all(8), child: column);
@@ -226,6 +230,7 @@ class _HomeState extends State<Home> {
       appBar: appBar,
       backgroundColor: Colors.white,
       body: singleChildScrollView,
+
     );
     return scaffold;
   }
