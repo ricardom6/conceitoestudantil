@@ -15,6 +15,7 @@ class _HomeState extends State<Home> {
   TextEditingController notaBController = TextEditingController();
   TextEditingController notaCController = TextEditingController();
   TextEditingController conceitoController = TextEditingController();
+  TextEditingController nomeController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void _resetFields() {
@@ -71,6 +72,23 @@ class _HomeState extends State<Home> {
       size: 120,
       color: Colors.yellow,
     );*/
+    TextFormField tFNome = TextFormField(
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+        labelText: 'Nome:',
+        labelStyle: TextStyle(color: Colors.black, fontSize: 20),
+        border: OutlineInputBorder(),
+        //suffixText: "ºC",
+      ),
+      textAlign: TextAlign.center,
+      style: styleField,
+      controller: nomeController,
+      validator: (value) {
+        if (value.isEmpty) {
+          return "Digite seu nome!";
+        }
+      },
+    );
 
     TextFormField tFNotaA = TextFormField(
       keyboardType: TextInputType.number,
@@ -148,6 +166,34 @@ class _HomeState extends State<Home> {
       child: raisedButton,
     );
 
+    Padding pad = Padding(
+      padding: EdgeInsets.all(8.0),
+      child: tFNotaA,
+    );
+
+    Row row = Row(
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: tFNotaA
+          )),
+        Expanded(
+          child: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: tFNotaB
+          )),
+        Expanded(
+          child: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: tFNotaC
+          )),
+
+      ],
+    );
+
+
+
     //ListView column = ListView(
     //  padding: EdgeInsets.all(10),
     //  shrinkWrap: true,
@@ -156,14 +202,11 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         //icon,
         Divider(),
-        tFNotaA,
+        tFNome,
         Divider(),
-        tFNotaB,
-        Divider(),
-        tFNotaC,
-        Divider(),
-        tFConceito,
+        row,
         containerBtn,
+        tFConceito,
       ],
     );
 
@@ -174,7 +217,7 @@ class _HomeState extends State<Home> {
 
     SingleChildScrollView singleChildScrollView = SingleChildScrollView(
       child: form,
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      padding: EdgeInsets.fromLTRB(10, 0, 10, 50),
     );
     //Container containerColuna =
     //  Container(padding: EdgeInsets.all(8), child: column);
